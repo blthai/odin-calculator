@@ -3,9 +3,10 @@ let secondNumber = '';
 let operator = '';
 let operatorIsPressed = false;
 let resultExists = false;
+let decimalIsPressed = false;
 let originalFirstNumber = '';
 const digitButtons = document.querySelectorAll('.digit');
-const display = document.querySelector('textarea');
+const display = document.querySelector('.display');
 const equalityButton = document.querySelector('.equality');
 const operatorButtons = document.querySelectorAll('.operator');
 const clearButton = document.querySelector('.clear');
@@ -49,6 +50,12 @@ function populateDisplay(event){
     firstNumber = '';
     resultExists = false;
   }
+  if(this.textContent === '.'){
+    if(decimalIsPressed){
+      return;
+    }
+    decimalIsPressed = true;
+  }
   if(operatorIsPressed){
     secondNumber = secondNumber + this.textContent;
     display.textContent = secondNumber;
@@ -56,11 +63,13 @@ function populateDisplay(event){
   else{
     firstNumber = firstNumber + this.textContent;
     display.textContent = firstNumber;
+    console.log(display.textContent)
   }
 }
 
 //set the resultExists to false so that when the user enters in numbers for the secondnumber after the operator, the firstnumber is not reset
 function assignOperator(event){
+  decimalIsPressed = false;
   if(resultExists){
     resultExists = false;
   }
@@ -99,12 +108,12 @@ function calculate(){
     }
     secondNumber = originalFirstNumber;
   }
-  
   display.textContent = Number(Number(operate().toFixed(9)));
   firstNumber = operate();
   secondNumber = '';
   operator = '';
   operatorIsPressed = false;
+  decimalIsPressed = false;
   resultExists = true;
 }
 
