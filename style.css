@@ -1,0 +1,9 @@
+.outerDisplay{
+  text-align: right;
+}
+
+.display{
+  float: right;
+  width: 200px;
+  border: black solid 4px;
+}
