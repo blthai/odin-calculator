@@ -41,6 +41,9 @@ function operate(){
   }
 }
 
+//if the result exists, set the firstnumber to an empty string and set the resultexists boolean to false when the display is populated again.
+//doing this will have the display show the result from the most recent calculation, then wipe itself and begin displaying a new firstnumber
+//if the user has chosen to populate the display isntead of chaining the result with another operator
 function populateDisplay(event){
   if(resultExists){
     firstNumber = '';
@@ -56,6 +59,7 @@ function populateDisplay(event){
   }
 }
 
+//set the resultExists to false so that when the user enters in numbers for the secondnumber after the operator, the firstnumber is not reset
 function assignOperator(event){
   if(resultExists){
     resultExists = false;
@@ -69,7 +73,7 @@ function assignOperator(event){
       clearCalculator();
       return;
     }
-    display.textContent = operate();
+    display.textContent = Number(Number(operate().toFixed(9)));
     firstNumber = operate();
     secondNumber = '';
   }
@@ -96,7 +100,7 @@ function calculate(){
     secondNumber = originalFirstNumber;
   }
   
-  display.textContent = operate();
+  display.textContent = Number(Number(operate().toFixed(9)));
   firstNumber = operate();
   secondNumber = '';
   operator = '';
