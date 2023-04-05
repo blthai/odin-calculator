@@ -60,7 +60,10 @@ function assignOperator(event){
   if(resultExists){
     resultExists = false;
   }
-  //if operator is pressed AND second number is empty just swap to the new oeprator
+  if(operatorIsPressed && secondNumber === ''){
+    operator = this.textContent;
+    return;
+  }
   if(operatorIsPressed){
     if(!firstNumber && operator === '/'){
       clearCalculator();
@@ -71,7 +74,6 @@ function assignOperator(event){
     secondNumber = '';
   }
   else if(firstNumber === ''){
-    //operator = this.textContent;
     return;
   }
   operatorIsPressed = true;
