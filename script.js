@@ -7,6 +7,7 @@ const digitButtons = document.querySelectorAll('.digit');
 const display = document.querySelector('textarea');
 const equalityButton = document.querySelector('.equality');
 const operatorButtons = document.querySelectorAll('.operator');
+const clearButton = document.querySelector('.clear');
 
 function add(number1, number2){
   return Number(number1) + Number(number2);
@@ -40,8 +41,6 @@ function operate(){
 }
 
 function populateDisplay(event){
-  // if we want to use the result after a calculate this firstnumber = "" is deleting the result, I DECIDED TO SET RESULT EXISTS = FALSE IN ASSIGN OPERATOR AS WE HAVE CHOSEN TO CONTINUE USIONG THE RESULT AT THAT POINT INSTEAD OF ENTERING
-  // A NEW VALUE
   if(resultExists){
     firstNumber = '';
     resultExists = false;
@@ -60,6 +59,7 @@ function assignOperator(event){
   if(resultExists){
     resultExists = false;
   }
+  //if operator is pressed AND second number is empty just swap to the new oeprator
   if(operatorIsPressed){
     display.textContent = operate();
     firstNumber = operate();
@@ -71,10 +71,15 @@ function assignOperator(event){
   operator = this.textContent;
 }
 
+//consider creating a variable to store the first duplicate equals generated number the ncheck if its empty and if not empty and second number is emptywere going to use the calculate
 function calculate(){
-  if(secondNumber===''){
+  if(firstNumber === '' && secondNumber === ''){
     return;
   }
+  if(secondNumber===''){
+    secondNumber = firstNumber;
+  }
+  
   display.textContent = operate();
   firstNumber = operate();
   secondNumber = '';
@@ -83,6 +88,17 @@ function calculate(){
   resultExists = true;
 }
 
+function clearCalculator(event){
+  firstNumber = '';
+  secondNumber = '';
+  operator = '';
+  operatorIsPressed = false;
+  resultExists = false;
+  display.textContent='0';
+}
+
+
 digitButtons.forEach((button) => button.addEventListener('click', populateDisplay));
 equalityButton.addEventListener('click', calculate);
 operatorButtons.forEach(((button) => button.addEventListener('click', assignOperator)));
+clearButton.addEventListener('click', clearCalculator);
