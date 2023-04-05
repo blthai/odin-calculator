@@ -3,6 +3,7 @@ let secondNumber = '';
 let operator = '';
 let operatorIsPressed = false;
 let resultExists = false;
+let originalFirstNumber = '';
 const digitButtons = document.querySelectorAll('.digit');
 const display = document.querySelector('textarea');
 const equalityButton = document.querySelector('.equality');
@@ -62,31 +63,37 @@ function assignOperator(event){
   //if operator is pressed AND second number is empty just swap to the new oeprator
   if(operatorIsPressed){
     if(!firstNumber && operator === '/'){
-      display.textContent = '0';
+      clearCalculator();
       return;
     }
     display.textContent = operate();
     firstNumber = operate();
     secondNumber = '';
   }
-  else{
-    operatorIsPressed = true;
+  else if(firstNumber === ''){
+    //operator = this.textContent;
+    return;
   }
+  operatorIsPressed = true;
   operator = this.textContent;
 }
 
 //consider creating a variable to store the first duplicate equals generated number the ncheck if its empty and if not empty and second number is emptywere going to use the calculate
 function calculate(){
-  if(firstNumber === '' && secondNumber === ''){
+  if(firstNumber === '' || (secondNumber === '' && operatorIsPressed === false)){
     return;
   }
   if(!firstNumber && operator === '/'){
-    display.textContent = '0';
+    clearCalculator();
     return;
   }
-  if(secondNumber===''){
-    secondNumber = firstNumber;
+  if(!secondNumber){
+    if(!originalFirstNumber){
+      originalFirstNumber = firstNumber;
+    }
+    secondNumber = originalFirstNumber;
   }
+  
   display.textContent = operate();
   firstNumber = operate();
   secondNumber = '';
@@ -99,6 +106,7 @@ function clearCalculator(event){
   firstNumber = '';
   secondNumber = '';
   operator = '';
+  originalFirstNumber = '';
   operatorIsPressed = false;
   resultExists = false;
   display.textContent='0';
