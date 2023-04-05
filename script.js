@@ -61,6 +61,10 @@ function assignOperator(event){
   }
   //if operator is pressed AND second number is empty just swap to the new oeprator
   if(operatorIsPressed){
+    if(!firstNumber && operator === '/'){
+      display.textContent = '0';
+      return;
+    }
     display.textContent = operate();
     firstNumber = operate();
     secondNumber = '';
@@ -76,10 +80,13 @@ function calculate(){
   if(firstNumber === '' && secondNumber === ''){
     return;
   }
+  if(!firstNumber && operator === '/'){
+    display.textContent = '0';
+    return;
+  }
   if(secondNumber===''){
     secondNumber = firstNumber;
   }
-  
   display.textContent = operate();
   firstNumber = operate();
   secondNumber = '';
