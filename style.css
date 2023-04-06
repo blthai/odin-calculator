@@ -23,8 +23,14 @@ h1{
 }
 
 .display{
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
   float: right;
   width: 500px;
   border: black solid 4px;
   height: 200px;
+  padding-bottom: 48px;
+  font-size: 48px;
+  color: rgb(255, 255, 255);
 }
