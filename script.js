@@ -62,7 +62,7 @@ function populateDisplay(event){
     decimalIsPressed = true;
   }
   if(operatorIsPressed){
-    if(secondNumber === '' && this.textContent === '0'){
+    if(secondNumber === '0' && this.textContent === '0'){
       return;
     }
     secondNumber = secondNumber + this.textContent;
