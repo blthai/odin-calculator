@@ -11,7 +11,6 @@ h1{
 }
 
 .calculator{
-  border: solid #142638 2px;
   width: 500px;
   display: flex;
   flex-direction: column;
@@ -28,7 +27,8 @@ h1{
   justify-content: flex-end;
   float: right;
   width: 500px;
-  border: black solid 4px;
+  border: black solid 1px;
+  border-radius: 24px;
   height: 200px;
   padding-bottom: 48px;
   font-size: 48px;
