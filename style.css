@@ -8,21 +8,23 @@ body{
 
 h1{
   color: antiquewhite;
-  
 }
 
 .calculator{
   border: solid #142638 2px;
   width: 500px;
+  display: flex;
+  flex-direction: column;
 }
 
 .outerDisplay{
+  display: flex;
   text-align: right;
 }
 
 .display{
   float: right;
-  width: 200px;
+  width: 500px;
   border: black solid 4px;
-  height: 18px;
+  height: 200px;
 }
