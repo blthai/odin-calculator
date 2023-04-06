@@ -62,10 +62,12 @@ function populateDisplay(event){
     decimalIsPressed = true;
   }
   if(operatorIsPressed){
-    if(secondNumber === '0' && this.textContent === '0'){
-      return;
+    if(secondNumber === '0'){
+      secondNumber = this.textContent;
     }
-    secondNumber = secondNumber + this.textContent;
+    else{
+      secondNumber = secondNumber + this.textContent;
+    }
     display.textContent = secondNumber;
   }
   else{
@@ -108,7 +110,6 @@ function assignOperator(event){
 
 //consider creating a variable to store the first duplicate equals generated number the ncheck if its empty and if not empty and second number is emptywere going to use the calculate
 function calculate(){
-  
   if(firstNumber === '' || (secondNumber === '' && operatorIsPressed === false)){
     return;
   }
