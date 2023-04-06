@@ -183,14 +183,14 @@ function percentage(){
       decimalIsPressed = true;
     }
     secondNumber = (secondNumber * .01) + "";
-    display.textContent = secondNumber;
+    display.textContent = Number(Number(secondNumber).toFixed(9)) + '';
   }
   else{
     if(firstNumber !== 0 && (firstNumber % 100 !== 0)){
       decimalIsPressed = true;
     }
     firstNumber = (firstNumber * .01) + "";
-    display.textContent = firstNumber;
+    display.textContent = Number(Number(firstNumber).toFixed(9)) + '';
   }
 }
 
