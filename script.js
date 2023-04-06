@@ -146,6 +146,9 @@ function backspace(){
     return;
   }
   else if(secondNumber){
+    if(secondNumber.charAt(secondNumber.length-1) === '.'){
+      decimalIsPressed = false;
+    }
     secondNumber = secondNumber.substring(0, secondNumber.length - 1);
     if(!secondNumber){
       display.textContent = '0';
@@ -157,6 +160,9 @@ function backspace(){
     return;
   }
   else{
+    if(firstNumber.charAt(firstNumber.length-1) === '.'){
+      decimalIsPressed = false;
+    }
     firstNumber = firstNumber.substring(0, firstNumber.length - 1);
     if(!firstNumber){
       display.textContent = '0';
