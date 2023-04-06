@@ -13,6 +13,7 @@ h1{
 
 .calculator{
   border: solid #142638 2px;
+  width: 500px;
 }
 
 .outerDisplay{
