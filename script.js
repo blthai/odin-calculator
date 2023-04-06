@@ -12,6 +12,7 @@ const equalityButton = document.querySelector('.equality');
 const operatorButtons = document.querySelectorAll('.operator');
 const clearButton = document.querySelector('.clear');
 const delButton = document.querySelector('.delete');
+const percentageButton = document.querySelector('.percentage');
 
 function add(number1, number2){
   return Number(number1) + Number(number2);
@@ -173,8 +174,29 @@ function backspace(){
   }
 }
 
+function percentage(){
+  if((!firstNumber && !secondNumber)){
+    return;
+  } 
+  else if(secondNumber){
+    if(secondNumber !== 0 && (secondNumber % 100 !== 0)){
+      decimalIsPressed = true;
+    }
+    secondNumber = (secondNumber * .01) + "";
+    display.textContent = secondNumber;
+  }
+  else{
+    if(firstNumber !== 0 && (firstNumber % 100 !== 0)){
+      decimalIsPressed = true;
+    }
+    firstNumber = (firstNumber * .01) + "";
+    display.textContent = firstNumber;
+  }
+}
+
 digitButtons.forEach((button) => button.addEventListener('click', populateDisplay));
 equalityButton.addEventListener('click', calculate);
 operatorButtons.forEach(((button) => button.addEventListener('click', assignOperator)));
 clearButton.addEventListener('click', clearCalculator);
 delButton.addEventListener('click', backspace);
+percentageButton.addEventListener('click', percentage);
