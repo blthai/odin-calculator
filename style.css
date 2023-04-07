@@ -35,3 +35,9 @@ h1{
   font-size: 48px;
   color: rgb(255, 255, 255);
 }
+
+.bottom-portion{
+  border: black solid 1px;
+  border-radius: 24px;
+  height: 500px;
+}
