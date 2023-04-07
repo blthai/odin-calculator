@@ -81,6 +81,7 @@ button{
 
 .equality{
   background-color: #0abaf1;
+  color: white;
 }
 
 .clear{
@@ -89,4 +90,8 @@ button{
 
 .delete{
   color:rgb(139, 138, 138)
+}
+
+button:hover{
+  background-color: #0F5480;
 }
