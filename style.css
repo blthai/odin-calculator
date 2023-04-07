@@ -1,5 +1,5 @@
 body{
-  background-color: #3b7894;
+  background-color: #47596B;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -7,7 +7,7 @@ body{
 }
 
 h1{
-  color: antiquewhite;
+  color: #54A0EB;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -51,7 +51,7 @@ h1{
   height: 600px;
   display: flex;
   flex-wrap: wrap;
-  padding-bottom: 16px;
+  padding-bottom: 36px;
   background-color: #0b2742;
 }
 
