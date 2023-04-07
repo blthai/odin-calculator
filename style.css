@@ -47,14 +47,12 @@ h1{
 }
 
 .bottom-portion{
-  
   border-radius: 24px;
   height: 600px;
   display: flex;
   flex-wrap: wrap;
   padding-bottom: 16px;
   background-color: #0b2742;
-  padding-top: 8px;
 }
 
 button{
@@ -64,6 +62,7 @@ button{
   background-color: #0b2742;
   border: none;
   font-size: 24px;
+  border-radius: 3px;
 }
 
 .zero{
@@ -82,6 +81,7 @@ button{
 .equality{
   background-color: #0abaf1;
   color: white;
+  
 }
 
 .clear{
