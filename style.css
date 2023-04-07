@@ -48,7 +48,7 @@ h1{
   height: 600px;
   display: flex;
   flex-wrap: wrap;
-  padding-bottom: 8px;
+  padding-bottom: 16px;
   background-color: #0b2742;
   padding-top: 8px;
 }
@@ -57,9 +57,32 @@ button{
   width: 100px;
   height: 120px;
   font-family: 'Montserrat', sans-serif;
-  
+  background-color: #0b2742;
+  border: none;
+  font-size: 24px;
 }
 
 .zero{
   width: 200px;
+}
+
+.percentage,
+.operator{
+  color: #387ba7;
+}
+
+.digit{
+  color: #b1c1cc;
+}
+
+.equality{
+  background-color: #0abaf1;
+}
+
+.clear{
+  color: #c98c6a;
+}
+
+.delete{
+  color:rgb(139, 138, 138)
 }
