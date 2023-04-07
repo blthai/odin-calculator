@@ -40,7 +40,11 @@ h1{
   font-family: 'Montserrat', sans-serif;
 }
 
-
+.middle-line{
+  background-color: #3277a3;
+  width: 400px;
+  height: 2px;
+}
 
 .bottom-portion{
   
