@@ -14,6 +14,8 @@ const clearButton = document.querySelector('.clear');
 const delButton = document.querySelector('.delete');
 const percentageButton = document.querySelector('.percentage');
 
+
+
 function add(number1, number2){
   return Number(number1) + Number(number2);
 }
