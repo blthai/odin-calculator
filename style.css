@@ -31,7 +31,7 @@ h1{
   align-items: flex-end;
   justify-content: flex-end;
   float: right;
-  width: 500px;
+  width: 400px;
   height: 250px;
   padding-bottom: 48px;
   padding-right: 24px;
@@ -43,23 +43,23 @@ h1{
 
 
 .bottom-portion{
-  border: black solid 1px;
+  
   border-radius: 24px;
   height: 600px;
   display: flex;
   flex-wrap: wrap;
-  padding-bottom: 24px;
+  padding-bottom: 8px;
   background-color: #0b2742;
   padding-top: 8px;
 }
 
 button{
-  width: 99px;
+  width: 100px;
   height: 120px;
   font-family: 'Montserrat', sans-serif;
   
 }
 
 .zero{
-  width: 198px;
+  width: 200px;
 }
