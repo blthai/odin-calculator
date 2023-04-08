@@ -1,5 +1,4 @@
 body{
-  background-color: #47596B;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -9,6 +8,7 @@ body{
 
 html, body{
   min-height: 100%;
+  background-color: #47596B;
 }
 
 h1{
