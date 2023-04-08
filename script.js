@@ -69,24 +69,26 @@ function populateDisplay(event){
       secondNumber = this.textContent;
     }
     else{
-      if(secondNumber.length >12){
+      if(secondNumber.length >= 10){
         return;
       }
       secondNumber = secondNumber + this.textContent;
     }
     display.textContent = secondNumber;
+    fixLongResult();
   }
   else{
     if(firstNumber === '0'){
       firstNumber = this.textContent
     }
     else{
-      if(firstNumber.length >12){
+      if(firstNumber.length >= 10){
         return;
       }
       firstNumber = firstNumber + this.textContent;
     }
     display.textContent = firstNumber;
+    fixLongResult();
   }
 }
 
@@ -109,6 +111,7 @@ function assignOperator(event){
       return;
     }
     display.textContent = Number(Number(operate().toFixed(9)));
+    fixLongResult();
     firstNumber = operate();
     secondNumber = '';
     tempResultExists = true;
@@ -139,6 +142,7 @@ function calculate(){
     secondNumber = originalFirstNumber;
   }
   display.textContent = Number(Number(operate().toFixed(9)));
+  fixLongResult();
   firstNumber = operate();
   secondNumber = '';
   operator = '';
@@ -154,6 +158,7 @@ function clearCalculator(event){
   operator = '';
   originalFirstNumber = '';
   operatorIsPressed = false;
+  decimalIsPressed = false;
   resultExists = false;
   display.textContent='0';
 }
@@ -170,6 +175,12 @@ function checkIfNumberExists(string){
     return false;
   }
   return true;
+}
+
+function fixLongResult(){
+  if(display.textContent.length > 13){
+    display.textContent = display.textContent.substring(0,12);
+  }
 }
 
 //delete the last digit in the number and if the number's last digit is deleted, display a 0 to the user
