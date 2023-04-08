@@ -69,6 +69,9 @@ function populateDisplay(event){
       secondNumber = this.textContent;
     }
     else{
+      if(secondNumber.length >12){
+        return;
+      }
       secondNumber = secondNumber + this.textContent;
     }
     display.textContent = secondNumber;
@@ -78,6 +81,9 @@ function populateDisplay(event){
       firstNumber = this.textContent
     }
     else{
+      if(firstNumber.length >12){
+        return;
+      }
       firstNumber = firstNumber + this.textContent;
     }
     display.textContent = firstNumber;
