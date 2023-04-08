@@ -85,6 +85,9 @@ function populateDisplay(event){
 }
 
 //set the resultExists to false so that when the user enters in numbers for the secondnumber after the operator, the firstnumber is not reset
+//if the operator is pressed and firstNumber, secondNumber, and the operator are filled out already, 
+//perform the calculation, and set firstNumber equal to the result 
+// use the operator button that triggered this event in the next calculation
 function assignOperator(event){
   decimalIsPressed = false;
   if(resultExists){
@@ -111,7 +114,10 @@ function assignOperator(event){
   operator = this.textContent;
 }
 
-//consider creating a variable to store the first duplicate equals generated number the ncheck if its empty and if not empty and second number is emptywere going to use the calculate
+//do not perform the calculation if there are no inputs, or if the user is trying to divide by zero
+//keep a reference to the firstNumber so that if the user presses the equal sign button after
+//filling out only the firstNumber and an operator,  
+//perform the calculation once with the firstNumber on both sides of the operator
 function calculate(){
   if(firstNumber === '' || (secondNumber === '' && operatorIsPressed === false)){
     return;
@@ -135,6 +141,7 @@ function calculate(){
   resultExists = true;
 }
 
+//reset all variable back to their default values in order to reset the calculator state
 function clearCalculator(event){
   firstNumber = '';
   secondNumber = '';
@@ -145,17 +152,29 @@ function clearCalculator(event){
   display.textContent='0';
 }
 
+function checkForDecimal(string){
+  if(string.charAt(string.length-1) === '.'){
+    decimalIsPressed = false;
+  }
+}
+
+function checkIfNumberExists(string){
+  if(!string){
+    display.textContent = '0';
+    return false;
+  }
+  return true;
+}
+
+//delete the last digit in the number and if the number's last digit is deleted, display a 0 to the user
 function backspace(){
   if(resultExists || (!firstNumber && !secondNumber || tempResultExists) ){
     return;
   }
   else if(secondNumber){
-    if(secondNumber.charAt(secondNumber.length-1) === '.'){
-      decimalIsPressed = false;
-    }
+    checkForDecimal(secondNumber);
     secondNumber = secondNumber.substring(0, secondNumber.length - 1);
-    if(!secondNumber){
-      display.textContent = '0';
+    if(!checkIfNumberExists(secondNumber)){
       return;
     }
     display.textContent = secondNumber;
@@ -164,18 +183,18 @@ function backspace(){
     return;
   }
   else{
-    if(firstNumber.charAt(firstNumber.length-1) === '.'){
-      decimalIsPressed = false;
-    }
+    checkForDecimal(firstNumber);
     firstNumber = firstNumber.substring(0, firstNumber.length - 1);
-    if(!firstNumber){
-      display.textContent = '0';
+    if(!checkIfNumberExists(firstNumber)){
       return;
     }
     display.textContent = firstNumber;
   }
 }
 
+//multiply either firstNumber or secondNumber by .01 to convert to decimal
+//it is possible for this calculation to result in an integer, 
+//so this function checks for that before it sets to decimalIsPressed boolean to true
 function percentage(){
   if((!firstNumber && !secondNumber)){
     return;
